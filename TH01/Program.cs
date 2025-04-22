@@ -1,9 +1,14 @@
+using TH01.Models.Interfaces;
+using TH01.Models.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
